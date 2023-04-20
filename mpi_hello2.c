@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <mpi.h>
 
+// MPI_Send와 MPI_Recv에서 int type comm test
 int main()
 {
     int num = 0;
