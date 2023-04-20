@@ -24,6 +24,7 @@ int main()
         for (int q = 1; q < size; q++)
         {
             MPI_Recv(&num, 1, MPI_INT, q, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            MPI_Recv(&num, 1, MPI_INT, q, MPI_ANY_TAG, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             printf("%d\n", num);
         }
     }
