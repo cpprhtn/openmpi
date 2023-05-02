@@ -18,31 +18,32 @@ int main()
     if (myrank == 0)
     {
         printf("myrank = 0\n");
-        MPI_Reduce(&a, &b, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&a, &b, 1, MPI_INT, MPI_SUM, 1, MPI_COMM_WORLD);
         printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
-        MPI_Reduce(&c, &d, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&c, &d, 1, MPI_INT, MPI_SUM, 1, MPI_COMM_WORLD);
         printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
     }
 
     else if (myrank == 1)
     {
         printf("myrank = 1\n");
-        MPI_Reduce(&c, &d, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&c, &d, 1, MPI_INT, MPI_SUM, 1, MPI_COMM_WORLD);
         printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
-        MPI_Reduce(&a, &b, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&a, &b, 1, MPI_INT, MPI_SUM, 1, MPI_COMM_WORLD);
         printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
     }
 
     else if (myrank == 2)
     {
         printf("myrank = 2\n");
-        MPI_Reduce(&a, &b, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&a, &b, 1, MPI_INT, MPI_SUM, 1, MPI_COMM_WORLD);
         printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
-        MPI_Reduce(&c, &d, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&c, &d, 1, MPI_INT, MPI_SUM, 1, MPI_COMM_WORLD);
         printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
+        printf("\n");
     }
 
-    if (myrank==0)
+    if (myrank==1)
         printf("END\na = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
 
     MPI_Finalize();
