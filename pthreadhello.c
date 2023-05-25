@@ -16,12 +16,12 @@ int main(int arg, char* argv []) {
     thread_handles = malloc (thread_count*sizeof(pthread_t));
 
     for (thread=0; thread<thread_count; thread++)
-    pthread_create(&thread_handles [thread], NULL, Hello, (void*) thread);
+        pthread_create(&thread_handles[thread], NULL, Hello, (void*) thread);
 
     printf("Hello from the main thread\n");
 
     for(thread=0; thread<thread_count; thread++)
-    pthread_join(thread_handles [thread], NULL);
+        pthread_join(thread_handles[thread], NULL);
     free(thread_handles) ;
     return 0;
 }
